@@ -1,0 +1,28 @@
+{
+   "name": "popgo",
+   "version": "0.0.1",
+   "description": "Mongodb + Populates",
+   "main": "index.js",
+   "scripts": {
+      "test": "jest --detectOpenHandles"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/erfanium/popgo.git"
+   },
+   "keywords": [
+      "mongodb",
+      "populate"
+   ],
+   "author": "ERFANIUM",
+   "license": "MIT",
+   "bugs": {
+      "url": "https://github.com/erfanium/popgo/issues"
+   },
+   "homepage": "https://github.com/erfanium/popgo#readme",
+   "devDependencies": {
+      "eslint": "^6.8.0",
+      "jest": "^25.2.4",
+      "mongodb": "^3.5.5"
+   }
+}
