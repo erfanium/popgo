@@ -1,6 +1,6 @@
 {
    "name": "popgo",
-   "version": "0.0.2",
+   "version": "0.0.3",
    "description": "Mongodb + Populates",
    "main": "index.js",
    "scripts": {

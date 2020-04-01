@@ -10,7 +10,9 @@ module.exports = function(mongodb) {
       const options = args[1]
       if (!options || typeof options === 'function' || !options.populate) return natives.findOne.call(this, ...args)
 
-      let pipelines = [{ $limit: 1 }]
+      const pipelines = []
+      if (args[0]) pipelines.push({ $match: args[0] })
+      pipelines.push({ $limit: 1 })
       addAggPipelines(options.populate, pipelines)
       if (options.sort) pipelines.push({ $sort: options.sort })
       if (options.projection) pipelines.push({ $project: options.projection })
@@ -25,7 +27,8 @@ module.exports = function(mongodb) {
       const options = args[1]
       if (!options || typeof options === 'function' || !options.populate) return natives.find.call(this, ...args)
 
-      let pipelines = []
+      const pipelines = []
+      if (args[0]) pipelines.push({ $match: args[0] })
       addAggPipelines(options.populate, pipelines)
       if (options.projection) pipelines.push({ $project: options.projection })
 

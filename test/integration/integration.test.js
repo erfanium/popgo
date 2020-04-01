@@ -42,7 +42,7 @@ beforeAll(async () => {
 describe('Populate', () => {
    it('should populate on findOne', async () => {
       const p = await posts.findOne(
-         { text: 'My first post' },
+         { text: 'My second post' },
          {
             populate: 'creator <- users'
          }
@@ -55,11 +55,11 @@ describe('Populate', () => {
       delete p.creator._id
 
       expect(p).toEqual({
-         text: 'My first post',
+         text: 'My second post',
          creator: {
-            name: 'Erfan'
+            name: 'Hassan'
          },
-         v: 2
+         v: 1
       })
    })
 
