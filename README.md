@@ -52,9 +52,16 @@ yarn add popgo
 const mongodb = require('mongodb')
 const popgo = require('popgo')(mongodb)
 
-popgo.connect('mongodb://localhost:27017/popgo:test').then(async c => {
-   const db = c.db()
-   const result = await db.collection('posts').findOne({ text: 'My first post' }, { populate: 'creator <- users' })
+popgo
+   .connect('mongodb://localhost:27017/popgo:test')
+   .then(async c => {
+      const db = c.db()
+      const result = await db
+         .collection('posts')
+         .findOne(
+            { text: 'My first post' }, 
+            { populate: 'creator <- users' }
+         )
 })
 ```
 
@@ -103,7 +110,12 @@ db.collection('posts').findOne(
 **Multi population:**
 
 ```js
-db.collection('posts').findOne({ text: 'My first post' }, { populate: ['creator <- users', 'partner <- partners'] })
+db
+   .collection('posts')
+   .findOne(
+      { text: 'My first post' }, 
+      { populate: ['creator <- users', 'partner <- partners'] }
+   )
 
 /*
 {
